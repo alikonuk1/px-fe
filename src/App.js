@@ -1,17 +1,20 @@
 import TradingViewWidget, { Themes }  from './tvwidget';
 import './App.css';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import Header from './Header';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header/>
+      <flex >
       <TradingViewWidget
         symbol="INDEX:ETHUSD"
         theme={Themes.DARK}
         /* locale="fr" */
         /* autosize */
-      />
-      </header>
+        />
+      </flex>
     </div>
   );
 }
