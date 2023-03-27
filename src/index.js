@@ -8,6 +8,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
   RainbowKitProvider,
+  midnightTheme,
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { goerli, polygonMumbai, sepolia } from 'wagmi/chains';
@@ -38,7 +39,15 @@ ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
       <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider 
+          chains={chains} 
+          coolMode
+          theme={midnightTheme({
+            accentColor: '#6366F1',
+            fontStack: 'system',
+            overlayBlur: "large",
+            borderRadius: "large"
+          })}>
           <App />
         </RainbowKitProvider>
       </WagmiConfig>

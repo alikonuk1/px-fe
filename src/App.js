@@ -10,7 +10,7 @@ function App() {
       <flex >
       <TradingViewWidget
         symbol="INDEX:ETHUSD"
-        theme={Themes.LIGHT}
+        theme={Themes.DARK}
         /* locale="fr" */
         /* autosize */
         />

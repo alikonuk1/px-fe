@@ -1,6 +1,6 @@
 import { Link, Flex, Image, Heading, Avatar } from '@chakra-ui/react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-/* import { ColorModeSwitcher } from './ColorModeSwitcher'; */
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 const Header = () => {
   return (
@@ -35,7 +35,7 @@ const Header = () => {
           largeScreen: true,
         }}
         />
-{/*         <ColorModeSwitcher justifySelf="flex-end" /> */}
+        <ColorModeSwitcher justifySelf="flex-end" />
       </Flex>
     </Flex>
   );
