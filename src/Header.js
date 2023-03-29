@@ -1,6 +1,5 @@
-import { Link, Flex, Image, Heading, Avatar } from '@chakra-ui/react';
+import { Link, Flex, Image, Heading, Box } from '@chakra-ui/react';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 const Header = () => {
   return (
@@ -8,18 +7,27 @@ const Header = () => {
       <Flex>
         <Link href="/" _hover={{ textDecoration: 'none' }}>
           <Flex align="center" cursor="pointer">
-{/*             <Image
-              style={{ maxHeight: '40px', maxWidth: '40px', padding: '3px' }}
-              src="/ethereum-c.png"
-              alt="arblet.xyz"
-            /> */}
-            <Heading size="md" marginLeft={"9px"}>
-              px Perpetuals
+            <Heading size="md" marginLeft={"36px"}>
+              PX Perpetuals
             </Heading>
           </Flex>
         </Link>
+{/*         <Box marginLeft={"36px"}>
+          <Link href="/deposit" _hover={{ textDecoration: 'none' }}>
+            <Heading size="md" cursor="pointer">
+              Deposit
+            </Heading>
+          </Link>
+        </Box>
+        <Box marginLeft={"36px"}>
+          <Link href="/liquidity" _hover={{ textDecoration: 'none' }}>
+            <Heading size="md" cursor="pointer">
+              Liquidity
+            </Heading>
+          </Link>
+        </Box> */}
       </Flex>
-      <Flex align="flex-end">
+      <Flex align="flex-end" marginRight={"36px"} >
       <ConnectButton 
         chainStatus={{
           smallScreen: "full",
@@ -35,7 +43,6 @@ const Header = () => {
           largeScreen: true,
         }}
         />
-        <ColorModeSwitcher justifySelf="flex-end" />
       </Flex>
     </Flex>
   );
