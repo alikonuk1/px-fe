@@ -11,9 +11,6 @@ import {
   Grid,
   extendTheme
 } from '@chakra-ui/react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Deposit from './Deposit';
-import Liquidity from './Liquidity';
 
 const modifiedTheme = extendTheme({
   config: {

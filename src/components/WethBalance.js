@@ -1,17 +1,17 @@
 import { useContractRead, useAccount } from "wagmi";
-import { ABI, CONTRACT_ADDRESS } from './data/abi';
+import { ABI, CONTRACT_ADDRESS } from '../data/abi';
 
-const Shares = () => {
+const WethBalance = () => {
 
     const { address, isConnecting, isDisconnected } = useAccount()
 
     const { data, isError, isLoading } = useContractRead({
         address: CONTRACT_ADDRESS,
         abi: ABI,
-        functionName: 'providerShares',
+        functionName: 'wethBalances',
         args: [address],
         onSuccess(data) {
-            console.log('Success providerShares', data/10**18)
+            console.log('Success wethBalances', data/10**18)
         },
       })
 
@@ -36,4 +36,4 @@ const Shares = () => {
     )
   }
   
-  export default Shares
+  export default WethBalance

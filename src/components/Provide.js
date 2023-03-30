@@ -4,17 +4,18 @@ import {
     Link
 } from '@chakra-ui/react'
 import { useContractWrite, usePrepareContractWrite, useWaitForTransaction } from "wagmi";
-import { ABI, CONTRACT_ADDRESS } from './data/abi';
+import { ABI, CONTRACT_ADDRESS } from '../data/abi';
 import { FaCheck } from 'react-icons/fa';
 
-const Provide = ({ amount }) => {
+const Provide = ({ amount, isWeth }) => {
 
     const { config } = usePrepareContractWrite({
         address: CONTRACT_ADDRESS,
         abi: ABI,
         functionName: 'provideLiquidity',
+        amount: [amount, isWeth],
         overrides: {
-            value: amount,
+            value: 0,
             gasLimit: 300000,
           },
     })

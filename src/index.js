@@ -18,7 +18,7 @@ import { publicProvider } from 'wagmi/providers/public';
 import { ChakraProvider } from '@chakra-ui/react'
 
 const { chains, provider } = configureChains(
-  [sepolia, goerli, polygonMumbai],
+  [/* sepolia,  */goerli, /* polygonMumbai */],
   [
     alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
     publicProvider()
