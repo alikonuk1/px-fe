@@ -1,17 +1,18 @@
 import { useContractRead, useAccount } from "wagmi";
 import { ABI, CONTRACT_ADDRESS } from '../data/abi';
+import { ethers } from "ethers";
 
 const PnL = () => {
 
-    const { address, isConnecting, isDisconnected } = useAccount()
+    const { address } = useAccount()
 
     const { data, isError, isLoading } = useContractRead({
         address: CONTRACT_ADDRESS,
         abi: ABI,
-        functionName: 'providerShares',
+        functionName: 'calculatePnLOf',
         args: [address],
         onSuccess(data) {
-            console.log('Success providerShares', data/10**18)
+            console.log('Success pnl', data)
         },
       })
 
@@ -29,8 +30,11 @@ const PnL = () => {
               fontSize: '2rem',
               fontWeight: 'bold',
               marginBottom: '6px'}}>
-              
-                {isError ? ' ' : isLoading ? 'Loading...' : data/10**18}
+                $
+                {isError ? ' ' : isLoading ? 'Loading...' :                 
+                parseFloat(
+                  ethers.utils.formatUnits(
+                    ethers.BigNumber.from(data))).toFixed(2)}
           </h1>
       </div>
     )

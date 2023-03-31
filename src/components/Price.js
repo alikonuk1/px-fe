@@ -1,4 +1,4 @@
-import { useContractRead, useAccount } from "wagmi";
+import { useContractRead } from "wagmi";
 import { ABI, CONTRACT_ADDRESS } from '../data/abi';
 import { ethers } from "ethers";
 

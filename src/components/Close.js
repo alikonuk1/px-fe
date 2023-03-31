@@ -7,13 +7,16 @@ import { useContractWrite, usePrepareContractWrite, useWaitForTransaction } from
 import { ABI, CONTRACT_ADDRESS } from '../data/abi';
 import { FaCheck } from 'react-icons/fa';
 
-const Withdraw = ({ amount, isWethProvide }) => {
+const Close = () => {
 
     const { config } = usePrepareContractWrite({
         address: CONTRACT_ADDRESS,
         abi: ABI,
-        functionName: 'withdraw',
-        args: [amount, isWethProvide],
+        functionName: 'closePosition',
+        args: [],
+        overrides: {
+            gasLimit: 300000,
+          },
     })
     
     const { data, write } = useContractWrite(config)
@@ -31,7 +34,7 @@ const Withdraw = ({ amount, isWethProvide }) => {
                     borderRadius="3xl" 
                     boxShadow={"md"} 
                     disabled={!write || isLoading} 
-                    onClick={() => {write?.()}}>{isLoading ? 'Withdrawing...' : 'Withdraw'}</Button>
+                    onClick={() => {write?.()}}>{isLoading ? 'Closing...' : 'Close Position'}</Button>
                     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                         {isSuccess && (
                             <div color="gray.500" fontWeight="medium" style={{ marginTop:"10px" , marginLeft:"50px"}} >
@@ -46,4 +49,4 @@ const Withdraw = ({ amount, isWethProvide }) => {
     )
 }
 
-export default Withdraw
+export default Close

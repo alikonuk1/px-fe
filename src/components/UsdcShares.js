@@ -3,7 +3,7 @@ import { ABI, CONTRACT_ADDRESS } from '../data/abi';
 
 const UsdcShares = () => {
 
-    const { address, isConnecting, isDisconnected } = useAccount()
+    const { address } = useAccount()
 
     const { data, isError, isLoading } = useContractRead({
         address: CONTRACT_ADDRESS,
@@ -11,7 +11,7 @@ const UsdcShares = () => {
         functionName: 'providerUsdcShares',
         args: [address],
         onSuccess(data) {
-            console.log('Success providerUsdcShares', data/10**18)
+            console.log('Success providerUsdcShares', data/10**6)
         },
       })
 
@@ -30,7 +30,7 @@ const UsdcShares = () => {
               fontWeight: 'bold',
               marginBottom: '6px'}}>
                $
-                {isError ? ' ' : isLoading ? 'Loading...' : data/10**18}
+                {isError ? ' ' : isLoading ? 'Loading...' : data/10**6}
           </h1>
       </div>
     )

@@ -37,6 +37,10 @@ body {
   color: #61dafb;
 }
 
+.animate-spin {
+  animation: spin 2s linear infinite;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

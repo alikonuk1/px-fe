@@ -7,13 +7,13 @@ import { useContractWrite, usePrepareContractWrite, useWaitForTransaction } from
 import { ABI, CONTRACT_ADDRESS } from '../data/abi';
 import { FaCheck } from 'react-icons/fa';
 
-const Provide = ({ amount, isWeth }) => {
+const Provide = ({ amount, isWethProvide }) => {
 
     const { config } = usePrepareContractWrite({
         address: CONTRACT_ADDRESS,
         abi: ABI,
         functionName: 'provideLiquidity',
-        amount: [amount, isWeth],
+        args: [amount, isWethProvide],
         overrides: {
             value: 0,
             gasLimit: 300000,
@@ -35,7 +35,7 @@ const Provide = ({ amount, isWeth }) => {
                     borderRadius="3xl" 
                     boxShadow={"md"} 
                     disabled={!write || isLoading} 
-                    onClick={() => {write()}}>{isLoading ? 'Providing...' : 'Provide'}</Button>
+                    onClick={() => {write?.()}}>{isLoading ? 'Providing...' : 'Provide'}</Button>
                     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
                         {isSuccess && (
                             <div color="gray.500" fontWeight="medium" style={{ marginTop:"10px" , marginLeft:"50px"}} >

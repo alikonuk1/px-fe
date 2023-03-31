@@ -3,7 +3,7 @@ import { ABI, CONTRACT_ADDRESS } from '../data/abi';
 
 const WethShares = () => {
 
-    const { address, isConnecting, isDisconnected } = useAccount()
+    const { address } = useAccount()
 
     const { data, isError, isLoading } = useContractRead({
         address: CONTRACT_ADDRESS,

@@ -8,17 +8,16 @@ import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
   RainbowKitProvider,
-  midnightTheme,
-  darkTheme,
+  midnightTheme
 } from '@rainbow-me/rainbowkit';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { goerli, polygonMumbai, sepolia } from 'wagmi/chains';
+import { goerli, sepolia } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { publicProvider } from 'wagmi/providers/public';
 import { ChakraProvider } from '@chakra-ui/react'
 
 const { chains, provider } = configureChains(
-  [/* sepolia,  */goerli, /* polygonMumbai */],
+  [sepolia, goerli],
   [
     alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
     publicProvider()
